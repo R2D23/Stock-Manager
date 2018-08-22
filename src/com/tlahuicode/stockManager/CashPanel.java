@@ -37,16 +37,34 @@ public class CashPanel extends javax.swing.JPanel {
     private static SaleTable minTable;
     private static double received;
 
+    /**
+     * This method returns the current, static sale.
+     * <p>
+     * Planned to be recoded, this method implies that there is only one,
+     * workable, <code>Sale</code> main instance. Future releases may implement
+     * multiple, workable <code>Sale</code> instances.
+     * <p>
+     * @return The main Sale instance.
+     */
     public static Sale getSale() {
 	return sale;
     }
 
+    /**
+     * This method will update the displayed total amount needed to be paid.
+     * <p>
+     * Simply enough, calling this method will take the current total of the
+     * main <code>Sale</code> instance.
+     */
     public static void updateTotal() {
 	NumberFormat df = DecimalFormat.getCurrencyInstance();
 	df.setCurrency(Currency.getInstance(Locale.US));
 	cp.totalField.setText(df.format(sale.getTotal()));
     }
 
+    /**
+     * This method executes all needed sequences in order to register a sale.
+     */
     public static void sale() {
 	try {
 	    sale.add();
@@ -240,8 +258,8 @@ public class CashPanel extends javax.swing.JPanel {
 
     private void valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueActionPerformed
 	received = Double.valueOf(value.getText().replaceAll("[\\D&&[^\\.\\,]]", ""));
-	changeLabel.setText("Change: " + 
-	    NumberFormat.getCurrencyInstance().format(received - sale.getTotal()));
+	changeLabel.setText("Change: "
+		+ NumberFormat.getCurrencyInstance().format(received - sale.getTotal()));
     }//GEN-LAST:event_valueActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
