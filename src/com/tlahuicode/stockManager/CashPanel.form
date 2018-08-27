@@ -100,6 +100,7 @@
     <Component class="javax.swing.JTextField" name="searcher">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searcherActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searcherKeyTyped"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="sPane">

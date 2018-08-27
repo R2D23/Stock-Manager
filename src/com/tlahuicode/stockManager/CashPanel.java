@@ -172,6 +172,11 @@ public class CashPanel extends javax.swing.JPanel {
                 searcherActionPerformed(evt);
             }
         });
+        searcher.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                searcherKeyTyped(evt);
+            }
+        });
 
         sPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -261,6 +266,10 @@ public class CashPanel extends javax.swing.JPanel {
 	changeLabel.setText("Change: "
 		+ NumberFormat.getCurrencyInstance().format(received - sale.getTotal()));
     }//GEN-LAST:event_valueActionPerformed
+
+    private void searcherKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searcherKeyTyped
+        st.setFilter(searcher.getText());
+    }//GEN-LAST:event_searcherKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel changeLabel;

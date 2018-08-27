@@ -126,10 +126,13 @@ public class SaleTable extends JTable {
 		    String auxT = Normalizer.normalize(p.getTags(), Normalizer.Form.NFD).toUpperCase();
 		    String auxB = p.getBarcode();
 		    String auxID = String.valueOf(p.getId());
-		    if (auxID.contains(auxS) || auxN.contains(auxS) || auxT.contains(auxS) || auxB.contains(auxS) || p.getId() == 0)
-			return true;
-		    else
-			return false;
+		    boolean aux = true;
+		    for(String s : auxS.split(" "))
+			if (auxID.contains(s) || auxN.contains(s) || auxT.contains(s) || auxB.contains(s))
+			    aux = aux && true;
+			else
+			    aux = false;
+		    return aux;
 		}
 	    };
 	    TableRowSorter<SaleTableModel> sorter;
